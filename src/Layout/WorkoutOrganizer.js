@@ -10,30 +10,15 @@ export default class WorkoutOrganizer extends React.Component {
     this.state = {
       exerciseList: [],
       showExercisePopUp: false,
-      exercisePrimary: '',
+      exercisePrimary: emptyExercise,
     };
 
-    this.addExercise = this.addExercise.bind(this)
     this.toggleExercisePopUp = this.toggleExercisePopUp.bind(this)
   }
 
-  addExercise() {
-    const list = this.state.exerciseList.slice();
-    this.toggleExercisePopUp()
-  }
-
-  createEmptyExercise() {
-    const emptyExercise = {
-      name: '',
-      weight: '',
-      set: '',
-      reps: '',
-      orm: '',
-    }
-  }
-
-  toggleExercisePopUp(event = undefined) {
+  toggleExercisePopUp(event) {
     const details = !this.state.showExercisePopUp && event ? event.target.value : ''
+    
     this.setState((prevState) => ({
       exerciseList: prevState.exerciseList,
       showExercisePopUp: !prevState.showExercisePopUp,
@@ -46,7 +31,6 @@ export default class WorkoutOrganizer extends React.Component {
       <div>
         <ExerciseList
           exerciseList={this.state.exerciseList}
-          addExer = {(exer) => this.addExercise(exer)}
           openExercise = {this.toggleExercisePopUp}
           />
         {this.state.showExercisePopUp ?
@@ -58,4 +42,12 @@ export default class WorkoutOrganizer extends React.Component {
       </div>
     )
   }
+}
+
+const emptyExercise = {
+  name: '',
+  weight: '',
+  set: '',
+  reps: '',
+  orm: '',
 }
