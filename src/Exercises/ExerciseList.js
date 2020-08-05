@@ -7,8 +7,6 @@ export default class ExerciseList extends React.Component {
 
   constructor(props) {
     super(props);
-
-
   }
 
   render () {
@@ -16,14 +14,14 @@ export default class ExerciseList extends React.Component {
     const exerciseButtons = exerciseList.map((i) => {
       return (
         <li key={i}>
-          <button onClick = {this.props.openExercise} value = {i}>{i}</button>
+          <button onClick = {this.props.openExercise} value = {JSON.stringify(i)}>{i.name}</button>
+
         </li>
       );
     });
 
     return (
       <div className = 'exercises'>
-        <button value = 'add' onClick={this.props.openExercise}>Add Exercise</button>
         <ul>{exerciseButtons}</ul>
       </div>
     );
