@@ -40,7 +40,16 @@
 }
 
 .exercise-title {
+  display: flex;
+  justify-content: flex-start;
   border-bottom: 1px #ccc solid;
 
   margin: 10px;
+}
+
+
+
+.submitButton {
+  display: flex;
+  justify-content: flex-end
 }

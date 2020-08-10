@@ -29,6 +29,11 @@ export default class WorkoutOrganizer extends React.Component {
     }))
   }
 
+  // TODO:
+  updateExercise(event) {
+
+  }
+
   // possibly refactor closePopUp and openPopUp
   closePopUp(event) {
     const details = event.target.value
@@ -78,4 +83,5 @@ const emptyExercise = {
   set: '',
   reps: '',
   orm: '',
+  progression: 'None'
 }

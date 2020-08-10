@@ -1,5 +1,6 @@
 import React from 'react';
 import './Exercise.css'
+import Progression from './Progression.js'
 
 export default class Exercise extends React.Component {
 
@@ -11,7 +12,8 @@ export default class Exercise extends React.Component {
       weight: this.props.details.weight,
       sets: this.props.details.sets,
       reps: this.props.details.sets,
-      orm: this.props.details.orm
+      orm: this.props.details.orm,
+      progression: this.props.details.progression
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -78,7 +80,20 @@ export default class Exercise extends React.Component {
               value = {this.state.orm}
               onChange={this.handleChange}
             />
-            <button type = 'submit'>Close</button>
+            <label> Progression:
+              <select name='progression' value = {this.state.progression} onChange={this.handleChange}>
+                <option value='Linear'>Linear</option>
+                <option value='None'>None</option>
+              </select>
+            </label>
+
+            {this.state.progression != '' ?
+             <Progression
+                type = {this.state.progression}
+              />
+              : null }
+              
+            <button className = 'submitButton' type = 'submit'>Close</button>
           </form>
         </div>
       </div>
